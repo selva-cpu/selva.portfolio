@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selva Cyril G - CSE Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Apply the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the active nav link */
+        .nav-link-active {
+            font-weight: 600;
+            color: #3b82f6; /* text-blue-500 */
+        }
+        .dark .nav-link-active {
+            color: #60a5fa; /* text-blue-400 */
+        }
+    </style>
+
+    <!-- Dark Mode Initializer -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Your Name -->
+                <a href="#home" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Selva Cyril G</a>
+                
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors nav-link">About</a>
+                    <a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors nav-link">Skills</a>
+                    <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors nav-link">Projects</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors nav-link">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <!-- Sun Icon (Light Mode) -->
+                        <svg id="theme-toggle-light-icon" class="h-5 w-5 hidden dark:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        <!-- Moon Icon (Dark Mode) -->
+                        <svg id="theme-toggle-dark-icon" class="h-5 w-5 block dark:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                    
+                    <!-- Resume Button -->
+                    <!-- IMPORTANT: Replace 'YOUR_RESUME.pdf' with the path to your actual resume file -->
+                    <a href="Selva Cyril Raja resume (1).docx" download="Selva_Cyril_G_Resume.docx" class="ml-4 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all">
+                        Download CV
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 mr-2">
+                        <svg class="h-5 w-5 block dark:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        <svg class="h-5 w-5 hidden dark:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </button>
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu Icon -->
+                        <svg id="menu-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <!-- Close Icon -->
+                        <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 nav-link">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 nav-link">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 nav-link">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 nav-link">Contact</a>
+                <a href="Selva Cyril Raja resume (1).docx" download="Selva_Cyril_G_Resume.docx" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700">
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+
+        <!-- Section 1: Hero -->
+        <section id="home" class="min-h-screen flex items-center -mt-16">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between w-full">
+                <!-- Text Content -->
+                <div class="md:w-3/5 text-center md:text-left">
+                    <span class="text-blue-600 dark:text-blue-400 font-semibold">Hi there, I'm</span>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-2 mb-4 text-gray-900 dark:text-white">Selva Cyril G</h1>
+                    <h2 class="text-2xl md:text-3xl font-medium text-gray-700 dark:text-gray-300 mb-6">Passionate Software Developer</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto md:mx-0 mb-8">
+                        Passionate software developer with strong problem-solving skills, eager to design and implement scalable, high-quality solutions and committed to continuous learning.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4 mb-8">
+                        <a href="#projects" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-medium rounded-md shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transform hover:-translate-y-1 transition-all">
+                            Contact Me
+                        </a>
+                    </div>
+                    <!-- Social Links -->
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <!-- Replace # with your actual links -->
+                        <a href="https://github.com/selva-cpu" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1c0-1.3-.5-2.4-1.3-3.2c.1-.3.5-1.5-.1-3.2c0 0-1.1-.3-3.5 1.3c-1-.3-2.1-.4-3.2-.4s-2.2.1-3.2.4C4.1 2.6 3 2.9 3 2.9c-.6 1.7-.2 2.9-.1 3.2C2 7 1.5 8.1 1.5 9.4c0 4.7 2.7 5.8 5.5 6.1c-.6.5-1.1 1.3-1.1 2.5V22"></path></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/selvacyril" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="mailto:selvacyrilraja@gmail.com" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="md:w-2/5 mb-10 md:mb-0">
+                    <!-- Placeholder for your photo -->
+                    <img src="IMG20250214102813.jpg" alt="Selva Cyril G" class="rounded-full shadow-2xl mx-auto border-8 border-white dark:border-gray-800 object-cover w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: About Me -->
+        <section id="about" class="py-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16">
+                <div class="md:w-1/3">
+                    <img src="https://placehold.co/600x400/e0e7ff/374151?text=A+bit+about+me&font=inter" alt="About me" class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                        Hello! I'm a B.E. Computer Science and Engineering student at Agni College of Technology (2022-2026), eager to design and implement scalable, high-quality solutions.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                        I am committed to continuous learning and applying modern solutions to improve product performance. I'm seeking to contribute to innovative projects that deliver real-world impact and user value.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">
+                        I possess strong skills in problem-solving, communication, and collaboration, and I am highly adaptable and eager to learn.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Skills -->
+        <section id="skills" class="py-24 bg-white dark:bg-gray-800 rounded-lg shadow-inner">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">My Tech Stack</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Technologies I've been working with recently.</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <!-- Skill Category 1 -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Programming Languages &amp; Web</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">C</span>
+                        <span class="skill-badge">My SQL</span>
+                        <span class="skill-badge">HTML</span>
+                        <span class="skill-badge">CSS</span>
+                    </div>
+                </div>
+                <!-- Skill Category 2 -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Concepts &amp; Cloud Platforms</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="skill-badge">Data Structures &amp; Algorithms</span>
+                        <span class="skill-badge">AWS</span>
+                        <span class="skill-badge">Azure</span>
+                    </div>
+                </div>
+                <!-- Skill Category 3 -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Tools &amp; Version Control</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">GitHub</span>
+                        <span class="skill-badge">VS Code</span>
+                        <span class="skill-badge">Android Studio</span>
+                        <span class="skill-badge">Chrome Dev Tools</span>
+                        <span class="skill-badge">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Projects -->
+        <section id="projects" class="py-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Projects</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Here are some of the projects I've worked on.</p>
+            </div>
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Card 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/93c5fd/374151?text=Project+1+Screenshot&font=inter" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Smart Traffic Diversion System (Naan Mudhalvan)</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A project aimed at optimizing traffic congestion using intelligent routing techniques and improving efficiency by enabling automated, data-driven diversion strategies in high-traffic zones.
+                        </p>
+                        <!-- Tech Stack Pills -->
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <!-- Add relevant tech badges here when known -->
+                            <!-- <span class="project-badge">Python</span> -->
+                        </div>
+                        <!-- Links -->
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+                                GitHub
+                                <svg class="h-5 w-5 ml-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1c0-1.3-.5-2.4-1.3-3.2c.1-.3.5-1.5-.1-3.2c0 0-1.1-.3-3.5 1.3c-1-.3-2.1-.4-3.2-.4s-2.2.1-3.2.4C4.1 2.6 3 2.9 3 2.9c-.6 1.7-.2 2.9-.1 3.2C2 7 1.5 8.1 1.5 9.4c0 4.7 2.7 5.8 5.5 6.1c-.6.5-1.1 1.3-1.1 2.5V22"></path></svg>
+                            </a>
+                            <a href="#" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+                                Live Demo
+                                <svg class="h-5 w-5 ml-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/6ee7b7/374151?text=Internship&font=inter" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Python Programming Intern - System Tron</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Gained hands-on experience by working on Python projects which helped to improve my problem-solving skills.
+                        </p>
+                        <!-- Tech Stack Pills -->
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="project-badge">Python</span>
+                        </div>
+                        <!-- Links -->
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+                                GitHub
+                                <svg class="h-5 w-5 ml-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1c0-1.3-.5-2.4-1.3-3.2c.1-.3.5-1.5-.1-3.2c0 0-1.1-.3-3.5 1.3c-1-.3-2.1-.4-3.2-.4s-2.2.1-3.2.4C4.1 2.6 3 2.9 3 2.9c-.6 1.7-.2 2.9-.1 3.2C2 7 1.5 8.1 1.5 9.4c0 4.7 2.7 5.8 5.5 6.1c-.6.5-1.1 1.3-1.1 2.5V22"></path></svg>
+                            </a>
+                            <!-- No Live Demo for this one, as an example -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 (REMOVED as resume lists one project and one internship) -->
+                
+            </div>
+        </section>
+        
+        <!-- Section 5: Contact -->
+        <section id="contact" class="py-24">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full mb-8"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                    My inbox is always open! Whether you have a question, a project idea, or just want to say hi,
+                    I'll do my best to get back to you.
+                </p>
+                <!-- Replace with your email address -->
+                <a href="mailto:selvacyrilraja@gmail.com" class="inline-block px-8 py-4 bg-blue-600 text-white text-lg font-medium rounded-md shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all">
+                    Say Hello
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 dark:border-gray-700 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <p class="text-gray-500 dark:text-gray-400">&copy; 2024 Selva Cyril G. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <!-- Replace # with your actual links -->
+                <a href="https://github.com/selva-cpu" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1c0-1.3-.5-2.4-1.3-3.2c.1-.3.5-1.5-.1-3.2c0 0-1.1-.3-3.5 1.3c-1-.3-2.1-.4-3.2-.4s-2.2.1-3.2.4C4.1 2.6 3 2.9 3 2.9c-.6 1.7-.2 2.9-.1 3.2C2 7 1.5 8.1 1.5 9.4c0 4.7 2.7 5.8 5.5 6.1c-.6.5-1.1 1.3-1.1 2.5V22"></path></svg>
+                </a>
+                <a href="https://linkedin.com/in/selvacyril" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="mailto:selvacyrilraja@gmail.com" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom CSS for Skill Badges (for brevity in HTML) -->
+    <style>
+        .skill-badge {
+            @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 text-sm font-medium px-4 py-2 rounded-full shadow-md;
+        }
+        .project-badge {
+            @apply bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+        }
+    </style>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Toggle ---
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            menuButton.addEventListener('click', () => {
+                const isMenuOpen = mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('hidden', !isMenuOpen);
+                closeIcon.classList.toggle('hidden', isMenuOpen);
+            });
+
+            // --- Dark Mode Toggle ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const mobileLightIcon = themeToggleMobileBtn.querySelector('.dark\\:block');
+            const mobileDarkIcon = themeToggleMobileBtn.querySelector('.block');
+
+
+            const toggleTheme = () => {
+                // Check if 'dark' class is already set
+                const isDarkMode = document.documentElement.classList.toggle('dark');
+                
+                // Update localStorage
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                
+                // Update icons on both desktop and mobile
+                lightIcon.classList.toggle('hidden', !isDarkMode);
+                darkIcon.classList.toggle('hidden', isDarkMode);
+                mobileLightIcon.classList.toggle('hidden', !isDarkMode);
+                mobileDarkIcon.classList.toggle('hidden', isDarkMode);
+            };
+
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+            // --- Active Nav Link Highlighting on Scroll ---
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('nav-link-active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('nav-link-active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' }); // Adjust rootMargin to highlight when section is more central
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- Close mobile menu on link click ---
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
+
